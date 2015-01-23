@@ -1,7 +1,7 @@
 {
     "name":             "lukesnowden/php-plesk",
-    "description":      "PHP client for the Plesk RPC API ",
-    "keywords":         ["php", "plesk", "api"],
+    "description":      "PHP client for the Plesk RPC API amended to easily run with Laravel applications",
+    "keywords":         ["php", "plesk", "api", "laravel"],
     "homepage":         "https://github.com/lukesnowden/php-plesk",
     "time":             "2014-10-08",
     "license":          "BSD",
@@ -11,6 +11,12 @@
             "email":        "dev.pmill@gmail.com",
             "homepage":     "https://github.com/pmill",
             "role":         "Author"
+        },
+        {
+            "name":         "Luke Snowden",
+            "email":        "luke@sno.wden.co.uk",
+            "homepage":     "http://luke.sno.wden.co.uk",
+            "role":         "Contributor"
         }
     ],
     "autoload": {
