@@ -5,6 +5,7 @@ abstract class BaseRequest
     protected $curl = NULL;
     protected $config = array();
     protected $params = array();
+    protected $packetVersion = '1.6.6.0';
 	protected $default_params = array();
 	protected $node_mapping = array();
 	protected $property_template = <<<EOT
@@ -136,6 +137,7 @@ EOT;
             }
             $packet = str_replace('{'.strtoupper($key).'}', $value, $packet);
         }
+        $packet = str_replace( "{PACKET_VERSION}", $this->packetVersion, $packet );
 
         return $packet;
     }

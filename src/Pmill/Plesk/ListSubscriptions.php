@@ -41,18 +41,20 @@ EOT;
             $webspace = $xml->webspace->get->result[$i];
 
 			$hosting = array();
-			foreach ($webspace->data->hosting->children() AS $host) {
-				$hosting[$host->getName()] = $this->getProperties($host);
-			}
 
-            $result[] = array(
-                'id'=>(string)$webspace->id,
-                'status'=>(string)$webspace->status,
-                'created'=>(string)$webspace->data->gen_info->cr_date,
-                'name'=>(string)$webspace->data->gen_info->name,
-                'owner_id'=>(string)$webspace->data->gen_info->{"owner-id"},
-                'hosting'=>$hosting,
-            );
+            if( isset( $webspace->data ) ) {
+    			foreach ($webspace->data->hosting->children() AS $host) {
+    				$hosting[$host->getName()] = $this->getProperties($host);
+    			}
+                $result[] = array(
+                    'id'=>(string)$webspace->id,
+                    'status'=>(string)$webspace->status,
+                    'created'=>(string)$webspace->data->gen_info->cr_date,
+                    'name'=>(string)$webspace->data->gen_info->name,
+                    'owner_id'=>(string)$webspace->data->gen_info->{"owner-id"},
+                    'hosting'=>$hosting,
+                );
+            }
         }
 
         return $result;
